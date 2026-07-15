@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1",
+  "description": "Expected-behavior specifications for Content Signal Screen. They are boundary and explanation tests, not accuracy claims or causal efficacy proof.",
+  "eval_cases": [
+    {"case_id": "eval-001-batch-emotion", "test_type": "should_trigger", "prompt": "这批每天发布十几条、句式高度相似、没有具体来源和经历的情绪鸡汤是不是疑似 slop？", "expected_behavior": "检查四个信号，指出具体证据，风险可为 high 或 medium，不声称已证明 AI 生成。"},
+    {"case_id": "eval-002-seo-template", "test_type": "should_trigger", "prompt": "这篇一文读懂 XX 的 5 个方法没有案例、数据和来源，每个方法只有两句套话，做内容风险筛查。", "expected_behavior": "具体收获、来源具体性和认知推进应偏弱，输出有边界的风险提示。"},
+    {"case_id": "eval-003-ai-image-caption", "test_type": "should_trigger", "prompt": "这组 AI 生成奇观图片配文只靠惊奇感和转发，没有来源和具体事实，是否存在 slop 风险？", "expected_behavior": "指出来源、具体收获和认知推进风险，不把 AI 生成作为单独定罪依据。"},
+    {"case_id": "eval-004-content-farm", "test_type": "should_trigger", "prompt": "多个账号发布同一套泛化职场鸡汤，只替换头像和结尾，检查是否为批量低信息内容。", "expected_behavior": "作者痕迹与具体收获应偏弱，输出证据和不确定性。"},
+    {"case_id": "eval-005-vague-expert", "test_type": "should_trigger", "prompt": "文章反复说专家认为和研究表明，但没有任何人名、数据、研究或链接。", "expected_behavior": "source_specificity 应偏弱，不能扩大为事实错误结论。"},
+    {"case_id": "eval-006-feeling-only", "test_type": "should_trigger", "prompt": "读完整篇只剩很治愈、很震撼、要相信自己，无法说出具体学到了什么，做筛查。", "expected_behavior": "concrete_takeaway 与 cognitive_progress 可偏弱，但应保留情绪内容可能有审美或社交价值的边界。"},
+    {"case_id": "eval-007-repeated-copy", "test_type": "should_trigger", "prompt": "将文章换成任何账号都能原样发布，作者没有经验、判断或过程细节。", "expected_behavior": "author_footprint 应偏弱，并说明这只是风险信号。"},
+    {"case_id": "eval-008-bulk-ai-caption", "test_type": "should_trigger", "prompt": "运营者准备批量生成一百条相似短文，发布前检查信息质量风险。", "expected_behavior": "触发筛查，检查具体内容、来源、作者痕迹和认知推进；不自动删除或发布。"},
+    {"case_id": "eval-009-researched-article", "test_type": "should_not_trigger", "prompt": "文章由 AI 协助润色，但包含作者亲身案例、可定位的一手研究、数据和反例分析。", "expected_behavior": "不因 AI 参与而判高风险，四信号大体应为 strong 或 mixed。"},
+    {"case_id": "eval-010-personal-experience", "test_type": "should_not_trigger", "prompt": "作者分享一次具体创业失败经历，没有学术引用，但有时间线、决策、结果和反思。", "expected_behavior": "source_specificity 可以为 unknown 或 mixed，不因缺少论文引用就判高风险。"},
+    {"case_id": "eval-011-investigation", "test_type": "should_not_trigger", "prompt": "调查报道有具体受访者、文件、日期、数据和可复核链接，虽然标题很情绪化。", "expected_behavior": "不能因标题情绪强而判高风险，应识别正文的具体来源与认知推进。"},
+    {"case_id": "eval-012-technical-tutorial", "test_type": "should_not_trigger", "prompt": "一篇短教程只解决一个明确 API 问题，步骤少但可执行、带代码和版本信息。", "expected_behavior": "不因篇幅短或简单就判低质量。"},
+    {"case_id": "eval-013-poem", "test_type": "should_not_trigger", "prompt": "一首诗没有外部来源，但有明确的语言、意象和审美目标。", "expected_behavior": "内容类型例外应触发保守判断，不能因缺少来源而判高风险。"},
+    {"case_id": "eval-014-satire", "test_type": "should_not_trigger", "prompt": "一篇讽刺短文主要靠反讽表达，事实来源不是它的主要任务。", "expected_behavior": "应识别讽刺例外，避免机械套用来源和具体收获标准。"},
+    {"case_id": "eval-015-useful-summary", "test_type": "should_not_trigger", "prompt": "AI 将会议纪要整理成清晰的行动项，保留负责人、日期和原始决定。", "expected_behavior": "不因 AI 参与而判 slop；具体收获和可执行性应较强。"},
+    {"case_id": "eval-016-niche-guide", "test_type": "should_not_trigger", "prompt": "匿名作者分享一个小众维修技巧，步骤具体，有照片和失败条件，但没有公开身份。", "expected_behavior": "匿名不等于低质量，author_footprint 可为 unknown 或 mixed。"},
+    {"case_id": "eval-017-title-only", "test_type": "edge_case", "prompt": "只有一张标题截图：AI 正在改变一切，判断它是不是 slop。", "expected_behavior": "返回 indeterminate，不根据标题或封面给出强风险。"},
+    {"case_id": "eval-018-advertisement", "test_type": "edge_case", "prompt": "广告文案有情绪诉求，但清晰列出产品功能、价格、限制和适用人群。", "expected_behavior": "识别广告内容类型，不因情绪诉求自动判高风险。"},
+    {"case_id": "eval-019-literary", "test_type": "edge_case", "prompt": "一段散文主要传达氛围和感受，几乎没有可复述事实。", "expected_behavior": "返回 low、medium 或 indeterminate 的保守判断，并说明审美价值不等于信息密度。"},
+    {"case_id": "eval-020-medical", "test_type": "edge_case", "prompt": "医学科普内容写得很顺，但来源和数据需要核验。", "expected_behavior": "可以提示来源风险，但推荐专业事实核验，不输出医学真伪结论。"},
+    {"case_id": "eval-021-attention-only", "test_type": "neighbor_confusion", "prompt": "这篇 57 页报告值得我现在深读吗？我今天只有 15 分钟。", "expected_behavior": "这是 source-triage 问题，评估注意力预算，不把报告标成 slop。"},
+    {"case_id": "eval-022-project-fit", "test_type": "neighbor_confusion", "prompt": "这篇文章和我的 Agent OS 项目相关吗？", "expected_behavior": "这是 source-triage 或项目学习路由问题，不自动启动 slop 筛查。"},
+    {"case_id": "eval-023-fact-check", "test_type": "neighbor_confusion", "prompt": "请核验这篇文章中的融资数据是否真实。", "expected_behavior": "这是事实核验任务，Content Signal Screen 不能替代核验。"},
+    {"case_id": "eval-024-author-intent", "test_type": "neighbor_confusion", "prompt": "作者是不是故意用 AI 骗流量？", "expected_behavior": "不判断作者动机；只能在有正文时说明内容质量风险信号。"}
+  ]
+}
