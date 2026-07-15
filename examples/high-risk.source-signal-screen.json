@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1",
+  "run_id": "example-high-risk",
+  "created_at": "2026-07-15T00:00:00Z",
+  "source": {
+    "title": "批量情绪鸡汤文案样本",
+    "path_or_url": "user-provided://sample",
+    "source_type": "post",
+    "sensitivity": "public"
+  },
+  "slop_risk": "high",
+  "basis": "样本有足够正文，四个信号中三个偏弱，且主要由通用情绪句式构成。",
+  "input_coverage": "sampled_content",
+  "inspected_sections": ["sample_batch", "repeated_openings", "repeated_closings"],
+  "signals": {
+    "concrete_takeaway": {"rating": "weak", "evidence": "多条内容无法复述具体事实、案例或可检验观点。", "confidence": "high"},
+    "source_specificity": {"rating": "weak", "evidence": "没有具体人物、研究、数据或原始链接。", "confidence": "high"},
+    "author_footprint": {"rating": "weak", "evidence": "更换账号后仍可原样发布，未看到作者经历或判断。", "confidence": "medium"},
+    "cognitive_progress": {"rating": "mixed", "evidence": "情绪刺激明显，但少量文案仍包含可执行提醒。", "confidence": "medium"}
+  },
+  "uncertainty": "这是内容质量风险启发式，不是事实核验或作者动机判断。",
+  "not_inferred": "不推断内容一定由 AI 生成，也不推断所有读者都不应阅读。",
+  "recommended_next_gate": "发布前进行人工改写，补充具体经验、来源或可验证观点。",
+  "writeback_status": "none"
+}
