@@ -1,4 +1,4 @@
----
+﻿---
 name: content-signal-screen
 description: Screen an article, post, transcript, report, or AI-assisted content for bounded low-information and mass-production risk using four content signals. Use when the user asks whether content is suspiciously slop, content-farm-like, low-information, algorithmically produced, or worth quality-checking before sharing or publishing. Do not use as an AI detector, fact checker, reading-attention triage, or author-intent judge.
 ---
