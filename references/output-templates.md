@@ -1,4 +1,4 @@
-# Content Signal Screen 输出契约 v0.1
+﻿# Content Signal Screen 输出契约 v0.1
 
 ```json
 {
