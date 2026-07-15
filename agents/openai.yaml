@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content Signal Screen"
+  short_description: "筛查文章与帖子中的低信息量和批量生产风险，并输出有边界的判断"
+  default_prompt: "请使用 $content-signal-screen 检查这段内容的四个质量信号，并给出有边界的疑似 Slop 风险判断。"
