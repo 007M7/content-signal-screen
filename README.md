@@ -2,7 +2,17 @@
 
 > 不是所有 AI 内容都是 slop。先看内容有没有信息，再决定要不要继续。
 
+统一工作流推荐：[Attention Budget Screen](https://github.com/007M7/attention-budget-screen)
+
 Content Signal Screen 是一个开源 Skill，用四个信号筛查文章、帖子、报告、视频文字稿或 AI 辅助内容中可能存在的低信息量、低投入和批量生产风险。
+
+如果你同时想判断“内容是否存在 Slop 风险”和“它现在是否值得占用注意力”，请优先使用新的统一工作流 Skill：
+
+```text
+https://github.com/007M7/attention-budget-screen
+```
+
+统一工作流会先做内容质量风险筛查，再做原始注意力预算决策。本仓库保留为独立内容筛查能力和历史兼容入口。
 
 它不判断“是不是 AI 写的”，也不替你判断内容是真是假。它只做一个有边界的前置筛查：这段内容是否值得继续核验、修改、转发或发布？
 
