@@ -1,4 +1,4 @@
-# Content Signal Screen
+﻿# Content Signal Screen
 
 > 不是所有 AI 内容都是 slop。先看内容有没有信息，再决定要不要继续。
 
