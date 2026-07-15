@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1",
+  "run_id": "example-indeterminate",
+  "created_at": "2026-07-15T00:00:00Z",
+  "source": {
+    "title": "某篇文章标题",
+    "path_or_url": "https://example.com/article",
+    "source_type": "article",
+    "sensitivity": "unknown"
+  },
+  "slop_risk": "indeterminate",
+  "basis": "只有标题和封面信息，无法负责地检查正文中的四个信号。",
+  "input_coverage": "metadata_only",
+  "inspected_sections": [],
+  "signals": {
+    "concrete_takeaway": {"rating": "unknown", "evidence": "未提供正文。", "confidence": "high"},
+    "source_specificity": {"rating": "unknown", "evidence": "未提供正文。", "confidence": "high"},
+    "author_footprint": {"rating": "unknown", "evidence": "未提供正文。", "confidence": "high"},
+    "cognitive_progress": {"rating": "unknown", "evidence": "未提供正文。", "confidence": "high"}
+  },
+  "uncertainty": "没有正文样本，四个信号都无法判断。",
+  "not_inferred": "不根据标题、封面或 AI 话题推断内容质量。",
+  "recommended_next_gate": "提供正文或可代表性的片段后再筛查。",
+  "writeback_status": "none"
+}
